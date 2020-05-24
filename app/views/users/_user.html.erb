@@ -1,0 +1,8 @@
+<% user.each do |u| %>
+  <div class="item">
+    <%=image_tag("avtar-for-message-me.png", alt: "profile pic", class: "ui avatar image", id: "profile-pic-online") %>
+    <div class="content">
+      <div class="header"><%= u.username %></div>
+    </div>
+  </div>
+<% end %>
