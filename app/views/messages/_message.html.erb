@@ -1,9 +1,9 @@
 <div class="content">
   <div class="summary">
-    <% if current_user == message.user%>
-      <p class= "ui right green aligned header"><%= message.body %></p>
+    <% if session[:user_id] == message.user.id%>
+      <p class= "ui right green aligned header" id="my-message-body"><big><em><%= message.user.username %></em>:</big> <%= message.body %></p>
     <% else %>
-      <p class= "ui left teal aligned header"><big><em><%= message.user.username %></em>:</big> <%= message.body %></p>
+      <p class= "ui left teal aligned header" id="my-message-body"><big><em><%= message.user.username %></em>:</big> <%= message.body %></p>
     <% end %>
   </div>
 </div>

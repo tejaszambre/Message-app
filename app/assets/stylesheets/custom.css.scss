@@ -1,10 +1,32 @@
 @import "semantic-ui";
 
 .chatbox{
-  height: 800px;
+  height: 1100px;
+}
+
+.half-chatbox{
+  height: 200px;
+}
+
+.custom-container{
+  margin: 5% 5%;
 }
 
 #messages{
   height: 15em;
   overflow: auto;
+}
+
+#users{
+  height: 15em;
+  overflow: auto;
+}
+
+#my-message-body{
+  margin: 2%;
+  font-size: 25px;
+}
+
+#message-submit{
+  display: none;
 }
