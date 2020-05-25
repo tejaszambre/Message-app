@@ -1,5 +1,9 @@
 <div class="content">
   <div class="summary">
-    <big><em><%= message.user.username %></em>:</big> <%= message.body %>
+    <% if current_user == message.user%>
+      <p class= "ui right green aligned header"><%= message.body %></p>
+    <% else %>
+      <p class= "ui left teal aligned header"><big><em><%= message.user.username %></em>:</big> <%= message.body %></p>
+    <% end %>
   </div>
 </div>
