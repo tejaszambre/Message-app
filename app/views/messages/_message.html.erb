@@ -1,9 +1,29 @@
 <div class="content">
   <div class="summary">
     <% if session[:user_id] == message.user.id%>
-      <p class= "ui right green aligned header" id="my-message-body"><big><em><%= message.user.username %></em>:</big> <%= message.body %></p>
+      <p class= "ui right green aligned header">
+        <span class="ui label" id="my-message-body">
+          <%= message.body %>
+          <br>
+          <span class= "ui grey circular mini label" id="time-on-message">
+            <%= message.created_at.strftime("%I:%M %p") %>
+          </span>
+        </span>
+      </p>
     <% else %>
-      <p class= "ui left teal aligned header" id="my-message-body"><big><em><%= message.user.username %></em>:</big> <%= message.body %></p>
+      <p class= "ui left teal aligned header">
+        <span class="ui label" id="frnd-message-body">
+          <span class= "" id="username-on-message">
+            <em><%= message.user.username %>:</em>
+          </span>
+          <br>
+          <%= message.body %>
+          <br>
+          <span class= "ui grey circular mini label" id="time-on-message">
+            <%= message.created_at.strftime("%I:%M %p") %>
+          </span>
+        </span>
+      </p>
     <% end %>
   </div>
 </div>

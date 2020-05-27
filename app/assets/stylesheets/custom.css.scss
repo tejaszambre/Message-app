@@ -1,7 +1,11 @@
 @import "semantic-ui";
 
 .chatbox{
-  height: 1100px;
+  height: 1305px;
+}
+
+body{
+  background-image: linear-gradient(to right, rgb(35, 7, 77), rgb(204, 83, 51));
 }
 
 .half-chatbox{
@@ -9,12 +13,26 @@
 }
 
 .custom-container{
-  margin: 5% 5%;
+  margin: 0% 5%;
 }
 
 #messages{
   height: 15em;
   overflow: auto;
+  background-image: linear-gradient(to right, rgba(35, 7, 77, 1), rgba(204, 83, 51, 1));
+}
+
+#time-on-message{
+  float: right;
+  margin-top: 5px;
+  margin-right: 0px;
+}
+
+#username-on-message{
+  float: left;
+  margin-left: 0px;
+  color: smokewhite;
+  font-size: 15px;
 }
 
 #users{
@@ -25,6 +43,18 @@
 #my-message-body{
   margin: 2%;
   font-size: 25px;
+  background-image: linear-gradient(to right, rgba(35, 7, 77, 1), rgba(204, 83, 51, 1));
+  color: white;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+}
+#frnd-message-body{
+  margin: 2%;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+  font-size: 25px;
+  background-image: linear-gradient(to right, rgba(35, 7, 77, 1), rgba(204, 83, 51, 1));
+  color: white;
 }
 
 #message-submit{

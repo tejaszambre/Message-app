@@ -1,4 +1,7 @@
-<h1>Welcome to Chatroom</h1>
+<%= content_tag "h1", class: "ui center aligned inverted icon header", id: "h1-tag-index", data: {current: current_user.id} do%>
+  <i class="users icon"></i>
+  Welcome to Chatroom
+<% end %>
 <div class="ui stackable two column grid">
   <div class="sixteen wide column">
     <div class="ui fluid raised card half-chatbox">
@@ -20,8 +23,9 @@
       <div class="extra content">
         <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path, remote: true) do |f| %>
           <div class="field">
-            <div class="ui left massive icon input">
+            <div class="ui right massive icon input">
               <%= f.text_field :body, id: "message_body", placeholder: "Enter your message"%>
+              <i class="rocket icon"></i>
               <%= f.button '<i class="rocket icon"></i>'.html_safe, id: "message-submit" %>
             </div>
           </div>

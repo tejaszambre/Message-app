@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
     if @user
       session[:user_id] = @user.id
       User.find(@user.id).update(online: true);
+      ActionCable.server.broadcast "online_users_channel", username: @user.username, id: @user.id
       flash[:success] = "You are successfully logged in."
       redirect_to chatroom_path
     else
@@ -20,8 +21,10 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    User.find(session[:user_id]).update(online: false);
+    @user = User.find(session[:user_id])
+    @user.update(online: false);
     session[:user_id] = nil
+    ActionCable.server.broadcast "offline_users_channel", id: @user.id
     flash[:success] = "You are successfully logged out."
     redirect_to login_path
   end

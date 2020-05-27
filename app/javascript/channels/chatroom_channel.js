@@ -10,7 +10,11 @@ consumer.subscriptions.create("ChatroomChannel", {
   },
 
   received(data) {
-    $('#message-container').append(data.mod_message)
+    if ($('#h1-tag-index').data('current') == data.user) {
+      $('#message-container').append("<p class= 'ui right green aligned header' id='my-message-body'><big><em>" + data.username + "</em>:</big> " + data.mod_message + "</p>")
+    } else {
+      $('#message-container').append("<p class= 'ui left teal aligned header' id='my-message-body'><big><em>" + data.username + "</em>:</big> " + data.mod_message + "</p>")
+    }
     scroll_bottom()
   }
 });
