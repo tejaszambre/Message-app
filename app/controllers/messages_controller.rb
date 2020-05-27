@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
     # byebug
     message = current_user.messages.build(permit_params)
     if message.save
-      ActionCable.server.broadcast "chatroom_channel", mod_message: message.body, current_user: current_user.id, user: message.user.id, username: message.user.username
+      ActionCable.server.broadcast "chatroom_channel", mod_message: message.body, current_user: current_user.id, user: message.user.id, username: message.user.username, create_at: message.created_at.strftime("%I:%M %p")
     end
   end
 
