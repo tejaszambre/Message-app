@@ -1,8 +1,5 @@
-<% user.each do |u| %>
+<% user.each do |user_record| %>
   <div class="item">
-    <%=image_tag("avtar-for-message-me.png", alt: "profile pic", class: "ui avatar image", id: "profile-pic-online") %>
-    <div class="content">
-      <div class="header"><%= u.username %></div>
-    </div>
+    <%=image_tag(avtar_selector(user_record), alt: "profile pic", class: "ui avatar image", id: "profile-pic-online") %>
   </div>
 <% end %>

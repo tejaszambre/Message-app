@@ -1,20 +1,12 @@
-<div class="ui massive inverted menu">
-  <div class="ui container">
-    <%= link_to "Chatroom", chatroom_path, class: "item"%>
-    <a class="item">
-      Friends
-    </a>
-    <div class="right menu">
-      <div class="ui dropdown item">
-        Account <i class="dropdown icon"></i>
-        <div class="menu">
-          <% if !logged_in? %>
-            <%= link_to "login", login_path, class: "item"%>
-          <% else %>
-            <%= link_to "logout", logout_path, method: :delete, class: "item"%>
-          <% end %>
-        </div>
-      </div>
+<div class="ui massive top right attached label" id= "navbar">
+  <div class="ui dropdown item">
+    <i class="ellipsis vertical icon"></i>
+    <div class="menu">
+      <% if !logged_in? %>
+        <%= link_to "login", login_path, class: "item"%>
+      <% else %>
+        <%= link_to "logout", logout_path, method: :delete, class: "item"%>
+      <% end %>
     </div>
   </div>
 </div>
