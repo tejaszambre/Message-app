@@ -1,36 +1,22 @@
-<%= content_tag "h1", class: "ui center aligned inverted icon header", id: "h1-tag-index", data: {current: current_user.id} do%>
-  <i class="users icon"></i>
-  Welcome to Chatroom
+<%= content_tag "h1", class: "ui inverted icon header", id: "h1-tag-index", data: {current: current_user.id} do%>
+Message Me
 <% end %>
-<div class="ui stackable two column grid">
-  <div class="sixteen wide column">
-    <div class="ui fluid raised card half-chatbox">
-      <div class="content" id="users">
-        <div class="ui celled list" id= "online-users-container">
-          <h3>Online Friends:</h3>
-          <%= render partial: 'users/user', locals: { user: @user } %>
-        </div>
-      </div>
+<div class="content" id="users">
+  <div class="" id= "online-users-container">
+    <div class= "ui avatar image" id= "search-icon"><i class="search icon"></i></div>
+    <%= render partial: 'users/user', locals: { user: @user } %>
+  </div>
+</div>
+<div class="chatbox">
+  <div class="rounded-top" id="messages">
+    <div class="ui feed" id="message-container">
+      <%= render @messages %>
     </div>
   </div>
-  <div class="sixteen wide column">
-    <div class="ui fluid raised green card chatbox">
-      <div class="content" id="messages">
-        <div class="ui feed" id="message-container">
-          <%= render @messages %>
-        </div>
-      </div>
-      <div class="extra content">
-        <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path, remote: true) do |f| %>
-          <div class="field">
-            <div class="ui right massive icon input">
-              <%= f.text_field :body, id: "message_body", placeholder: "Enter your message"%>
-              <i class="rocket icon"></i>
-              <%= f.button '<i class="rocket icon"></i>'.html_safe, id: "message-submit" %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
+  <div class= "cover">
+    <%= form_for(@message, html: {class: "rounded-text-field", role: "form"}, url: message_path, remote: true) do |f| %>
+      <%= f.text_field :body, id: "message_body", placeholder: "Enter your message" %>
+      <%= f.button '<i class="rocket icon"></i>'.html_safe, id: "message-button"%>
+    <% end %>
   </div>
 </div>

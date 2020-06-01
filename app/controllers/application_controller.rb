@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :avtar_selector
 
   private
   def current_user
@@ -25,4 +25,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def avtar_selector(user)
+    if current_user
+      if user.id == 1
+        "avtar-beard.png"
+      elsif user.username == "anonymous"
+        "avtar-anonymous.png"
+      else
+        "avtar-#{user.id.modulo(3)}.png"
+      end
+    end
+  end
 end
